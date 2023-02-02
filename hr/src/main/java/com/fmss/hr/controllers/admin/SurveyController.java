@@ -38,7 +38,7 @@ public class SurveyController {
         surveyService.deleteSurveyById(id);
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<SurveyDto> getSurveyById(@PathVariable Long id){
         return ResponseEntity.ok(surveyService.getSurveyById(id));
     }
