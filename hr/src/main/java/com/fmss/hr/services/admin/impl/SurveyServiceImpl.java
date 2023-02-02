@@ -16,7 +16,7 @@ public class SurveyServiceImpl implements SurveyService {
     private final SurveyRepository surveyRepository;
 
     @Override
-    public Survey createSurvey(SurveyDto surveyDto) {
+    public SurveyDto createSurvey(SurveyDto surveyDto) {
         return null;
     }
 
@@ -26,22 +26,22 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     @Override
-    public Survey updateSurvey(SurveyDto surveyDto, Long id) {
+    public SurveyDto updateSurvey(SurveyDto surveyDto, Long id) {
         return null;
     }
 
     @Override
-    public Survey getSurveyById(Long id) {
-        return surveyRepository.findById(id).orElse(null);
-    }
-
-    @Override
-    public List<Survey> getAllSurvey() {
+    public SurveyDto getSurveyById(Long id) {
         return null;
     }
 
     @Override
-    public List<Survey> getAllSurveyWithStatus(Boolean isActive, int pageNum) {
+    public List<SurveyDto> getAllSurvey() {
+        return null;
+    }
+
+    @Override
+    public List<SurveyDto> getAllSurveyWithStatus(Boolean isActive, int pageNum) {
         return null;
     }
 }

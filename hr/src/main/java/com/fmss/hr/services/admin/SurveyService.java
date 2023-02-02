@@ -7,17 +7,17 @@ import java.util.List;
 
 public interface SurveyService {
 
-    Survey createSurvey(SurveyDto surveyDto);
+    SurveyDto createSurvey(SurveyDto surveyDto);
 
     void deleteSurveyById(Long surveyId);
 
-    Survey updateSurvey(SurveyDto surveyDto, Long id);
+    SurveyDto updateSurvey(SurveyDto surveyDto, Long id);
 
-    Survey getSurveyById(Long id);
+    SurveyDto getSurveyById(Long id);
 
-    List<Survey> getAllSurvey();
+    List<SurveyDto> getAllSurvey();
 
-    List<Survey> getAllSurveyWithStatus(Boolean isActive, int pageNum);
+    List<SurveyDto> getAllSurveyWithStatus(Boolean isActive, int pageNum);
 
 
 

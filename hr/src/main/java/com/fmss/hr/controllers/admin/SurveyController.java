@@ -24,8 +24,8 @@ public class SurveyController {
     }
     @GetMapping(value="/{isActive}")
     public ResponseEntity<List<SurveyDto>> getAllSurveyWithStatus(@PathVariable int pageNum, @PathVariable Boolean isActive){
-        List<SurveyDto> surveyDtoList = surveyService.getAllSurveyWithStatus(pageNum,isActive);
-        return ResponseEntity.ok(surveyService.getAllSurveyWithStatus());
+        List<SurveyDto> surveyDtoList = surveyService.getAllSurveyWithStatus(isActive,pageNum);
+        return ResponseEntity.ok(surveyService.getAllSurveyWithStatus(isActive,pageNum));
     }
     @PostMapping
     public ResponseEntity<SurveyDto> createSurvey(@Valid @RequestBody SurveyDto surveyDto){
@@ -38,13 +38,13 @@ public class SurveyController {
     }
 
     @GetMapping
-    public ResponseEntity<List<SurveyDto>> getSurveyById(@PathVariable Long id){
+    public ResponseEntity<SurveyDto> getSurveyById(@PathVariable Long id){
         return ResponseEntity.ok(surveyService.getSurveyById(id));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<SurveyDto> updateSurvey( @PathVariable Long id,@Valid @RequestBody SurveyDto surveyDto){
-        return ResponseEntity.ok(surveyService.updateSurvey(id,surveyDto));
+        return ResponseEntity.ok(surveyService.updateSurvey(surveyDto,id));
     }
 
 
