@@ -1,22 +1,16 @@
-package com.fmss.hr.dto;
+package com.fmss.hr.dto.request;
 
-import com.fmss.hr.entities.SurveyOptions;
-import lombok.*;
+import com.fmss.hr.dto.SurveyOptionsDto;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Getter
-@Setter
-@Builder
-public class SurveyDto {
+public class SurveyRequest {
 
     private Long id;
 
+    @NotBlank(message = "Title can not be null!")
     private String title;
 
     private String description;
@@ -25,6 +19,7 @@ public class SurveyDto {
 
     private LocalDateTime endDate;
 
+    @NotBlank(message = "Survey options can not be null!")
     private List<SurveyOptionsDto> options;
 
     private Boolean status;
