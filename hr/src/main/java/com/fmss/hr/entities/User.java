@@ -115,7 +115,6 @@ public class User implements UserDetails {
     private String photoPath;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "surveyOption_id", nullable = false, referencedColumnName = "id")
     private SurveyOptions surveyOptions;
 
     @Override
