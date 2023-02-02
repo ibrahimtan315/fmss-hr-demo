@@ -20,5 +20,6 @@ public class SurveyDto {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private List<SurveyOptionsDto> options;
+    private Boolean status;
 
 }
