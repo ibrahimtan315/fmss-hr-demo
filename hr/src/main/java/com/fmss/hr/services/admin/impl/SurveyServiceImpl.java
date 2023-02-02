@@ -1,6 +1,7 @@
 package com.fmss.hr.services.admin.impl;
 
 import com.fmss.hr.dto.SurveyDto;
+import com.fmss.hr.dto.request.SurveyRequest;
 import com.fmss.hr.entities.Survey;
 import com.fmss.hr.mapper.SurveyMapper;
 import com.fmss.hr.repos.admin.SurveyRepository;
@@ -19,7 +20,7 @@ public class SurveyServiceImpl implements SurveyService {
     private final SurveyMapper surveyMapper;
 
     @Override
-    public SurveyDto createSurvey(SurveyDto surveyDto) {
+    public SurveyDto createSurvey(SurveyRequest surveyRequest) {
         return null;
     }
 
@@ -29,7 +30,7 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     @Override
-    public SurveyDto updateSurvey(SurveyDto surveyDto, Long id) {
+    public SurveyDto updateSurvey(SurveyRequest surveyRequest, Long id) {
         return null;
     }
 
@@ -47,6 +48,13 @@ public class SurveyServiceImpl implements SurveyService {
 
     @Override
     public List<SurveyDto> getAllSurveyWithStatus(Boolean isActive, int pageNum) {
+        return null;
+    }
+    public Integer getSurveyCountWithStatus(Boolean isActive){
+        return null;
+    }
+
+    public Integer getSurveyCount(){
         return null;
     }
 }
