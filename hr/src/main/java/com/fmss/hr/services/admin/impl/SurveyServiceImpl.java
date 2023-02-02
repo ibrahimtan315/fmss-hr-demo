@@ -28,7 +28,6 @@ public class SurveyServiceImpl implements SurveyService {
         List<SurveyOptionsDto> surveyOptionsDtoList = surveyRequest.getOptions().stream().toList();
         surveyOptionsService.saveSurveyOptionsList(surveyOptionsDtoList);
         return surveyMapper.toSurveyDto(surveyRepository.save(survey));
-        return null;
     }
 
     @Override
