@@ -6,6 +6,7 @@ import lombok.Getter;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.List;
+
 @Getter
 public class SurveyRequest {
 
@@ -24,6 +25,5 @@ public class SurveyRequest {
     private List<SurveyOptionsDto> options;
 
     private Boolean status;
-
 
 }

@@ -7,7 +7,7 @@ import com.fmss.hr.entities.Survey;
 import com.fmss.hr.mapper.SurveyMapper;
 import com.fmss.hr.repos.admin.SurveyRepository;
 import com.fmss.hr.services.admin.SurveyService;
-import com.fmss.hr.services.user.SurveyOptionsService;
+import com.fmss.hr.services.admin.SurveyOptionsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

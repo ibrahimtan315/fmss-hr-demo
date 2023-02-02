@@ -4,7 +4,7 @@ import com.fmss.hr.dto.SurveyOptionsDto;
 import com.fmss.hr.entities.SurveyOptions;
 import com.fmss.hr.mapper.SurveyOptionsMapper;
 import com.fmss.hr.repos.admin.SurveyOptionsRepository;
-import com.fmss.hr.services.user.SurveyOptionsService;
+import com.fmss.hr.services.admin.SurveyOptionsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
