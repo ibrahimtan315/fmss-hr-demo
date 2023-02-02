@@ -33,5 +33,7 @@ public class Survey {
     private LocalDateTime endDate;
     @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<SurveyOptions> options;
+    @Column(name = "status")
+    private Boolean status;
 
 }
