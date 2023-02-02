@@ -47,7 +47,14 @@ public class SurveyController {
     public ResponseEntity<SurveyDto> updateSurvey( @PathVariable Long id,@Valid @RequestBody SurveyRequest surveyRequest){
         return ResponseEntity.ok(surveyService.updateSurvey(surveyRequest,id));
     }
-
+    @GetMapping(value ="/getSurveyCountWithStatus/{isActive}")
+    public ResponseEntity<Integer> getSurveyCountWithStatus (@PathVariable Boolean isActive){
+        return ResponseEntity.ok(surveyService.getSurveyCountWithStatus(isActive));
+    }
+    @GetMapping(value ="/getSurveyCount")
+    public ResponseEntity<Integer> getSurveyCount (){
+        return ResponseEntity.ok(surveyService.getSurveyCount());
+    }
 
 
 }

@@ -24,11 +24,11 @@ public class SurveyServiceImpl implements SurveyService {
 
     @Override
     public SurveyDto createSurvey(SurveyRequest surveyRequest) {
-
         Survey survey = surveyMapper.toSurveyFromSurveyCreateRequest(surveyRequest);
         List<SurveyOptionsDto> surveyOptionsDtoList = surveyRequest.getOptions().stream().toList();
         surveyOptionsService.saveSurveyOptionsList(surveyOptionsDtoList);
         return surveyMapper.toSurveyDto(surveyRepository.save(survey));
+        return null;
     }
 
     @Override
@@ -55,6 +55,13 @@ public class SurveyServiceImpl implements SurveyService {
 
     @Override
     public List<SurveyDto> getAllSurveyWithStatus(Boolean isActive, int pageNum) {
+        return null;
+    }
+    public Integer getSurveyCountWithStatus(Boolean isActive){
+        return null;
+    }
+
+    public Integer getSurveyCount(){
         return null;
     }
 }
