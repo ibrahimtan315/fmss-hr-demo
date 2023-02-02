@@ -33,7 +33,7 @@ public class SurveyController {
     }
     @DeleteMapping
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public ResponseEntity<String> deleteSurveyById(@PathVariable Long id){
+    public void deleteSurveyById(@PathVariable Long id){
         surveyService.deleteSurveyById(id);
     }
 

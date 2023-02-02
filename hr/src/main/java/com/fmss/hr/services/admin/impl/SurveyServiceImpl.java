@@ -2,18 +2,21 @@ package com.fmss.hr.services.admin.impl;
 
 import com.fmss.hr.dto.SurveyDto;
 import com.fmss.hr.entities.Survey;
+import com.fmss.hr.mapper.SurveyMapper;
 import com.fmss.hr.repos.admin.SurveyRepository;
 import com.fmss.hr.services.admin.SurveyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
 public class SurveyServiceImpl implements SurveyService {
 
     private final SurveyRepository surveyRepository;
+    private final SurveyMapper surveyMapper;
 
     @Override
     public SurveyDto createSurvey(SurveyDto surveyDto) {
@@ -32,7 +35,9 @@ public class SurveyServiceImpl implements SurveyService {
 
     @Override
     public SurveyDto getSurveyById(Long id) {
-        return null;
+        Optional<Survey> surveyOptional = surveyRepository.findById(id);
+
+        return surveyOptional.map(surveyMapper::toSurveyDto).orElse(null);
     }
 
     @Override
