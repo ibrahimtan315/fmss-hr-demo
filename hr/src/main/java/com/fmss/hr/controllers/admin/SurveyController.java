@@ -1,6 +1,7 @@
 package com.fmss.hr.controllers.admin;
 
 import com.fmss.hr.dto.SurveyDto;
+import com.fmss.hr.dto.request.SurveyRequest;
 import com.fmss.hr.services.admin.impl.SurveyServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -28,23 +29,23 @@ public class SurveyController {
         return ResponseEntity.ok(surveyService.getAllSurveyWithStatus(isActive,pageNum));
     }
     @PostMapping
-    public ResponseEntity<SurveyDto> createSurvey(@Valid @RequestBody SurveyDto surveyDto){
-        return ResponseEntity.ok(surveyService.createSurvey(surveyDto));
+    public ResponseEntity<SurveyDto> createSurvey(@Valid @RequestBody SurveyRequest surveyRequest){
+        return ResponseEntity.ok(surveyService.createSurvey(surveyRequest));
     }
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteSurveyById(@PathVariable Long id){
         surveyService.deleteSurveyById(id);
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<SurveyDto> getSurveyById(@PathVariable Long id){
         return ResponseEntity.ok(surveyService.getSurveyById(id));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<SurveyDto> updateSurvey( @PathVariable Long id,@Valid @RequestBody SurveyDto surveyDto){
-        return ResponseEntity.ok(surveyService.updateSurvey(surveyDto,id));
+    public ResponseEntity<SurveyDto> updateSurvey( @PathVariable Long id,@Valid @RequestBody SurveyRequest surveyRequest){
+        return ResponseEntity.ok(surveyService.updateSurvey(surveyRequest,id));
     }
 
 

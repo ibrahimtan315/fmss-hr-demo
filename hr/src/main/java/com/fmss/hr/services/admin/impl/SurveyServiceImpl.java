@@ -1,10 +1,13 @@
 package com.fmss.hr.services.admin.impl;
 
 import com.fmss.hr.dto.SurveyDto;
+import com.fmss.hr.dto.SurveyOptionsDto;
+import com.fmss.hr.dto.request.SurveyRequest;
 import com.fmss.hr.entities.Survey;
 import com.fmss.hr.mapper.SurveyMapper;
 import com.fmss.hr.repos.admin.SurveyRepository;
 import com.fmss.hr.services.admin.SurveyService;
+import com.fmss.hr.services.user.SurveyOptionsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +20,15 @@ public class SurveyServiceImpl implements SurveyService {
 
     private final SurveyRepository surveyRepository;
     private final SurveyMapper surveyMapper;
+    private final SurveyOptionsService surveyOptionsService;
 
     @Override
-    public SurveyDto createSurvey(SurveyDto surveyDto) {
-        return null;
+    public SurveyDto createSurvey(SurveyRequest surveyRequest) {
+
+        Survey survey = surveyMapper.toSurveyFromSurveyCreateRequest(surveyRequest);
+        List<SurveyOptionsDto> surveyOptionsDtoList = surveyRequest.getOptions().stream().toList();
+        surveyOptionsService.saveSurveyOptionsList(surveyOptionsDtoList);
+        return surveyMapper.toSurveyDto(surveyRepository.save(survey));
     }
 
     @Override
@@ -29,7 +37,7 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     @Override
-    public SurveyDto updateSurvey(SurveyDto surveyDto, Long id) {
+    public SurveyDto updateSurvey(SurveyRequest surveyRequest, Long id) {
         return null;
     }
 
