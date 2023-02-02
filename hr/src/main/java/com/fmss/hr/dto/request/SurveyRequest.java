@@ -1,12 +1,11 @@
 package com.fmss.hr.dto.request;
 
 import com.fmss.hr.dto.SurveyOptionsDto;
-import lombok.Getter;
 
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.List;
-@Getter
+
 public class SurveyRequest {
 
     private Long id;
@@ -24,6 +23,5 @@ public class SurveyRequest {
     private List<SurveyOptionsDto> options;
 
     private Boolean status;
-
 
 }
