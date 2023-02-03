@@ -1,16 +1,15 @@
 package com.fmss.hr.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "surveyOptions")
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,9 +20,8 @@ public class SurveyOptions {
     private Long id;
     @Column(name = "option")
     private String option;
-
-    @OneToMany(mappedBy = "surveyOptions", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<User> user;
+    @Column(name = "user_id")
+    private Long userId;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "surveyOption_id", nullable = false, referencedColumnName = "id")
     private Survey survey;

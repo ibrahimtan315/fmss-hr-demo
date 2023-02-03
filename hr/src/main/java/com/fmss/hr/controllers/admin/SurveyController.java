@@ -2,6 +2,7 @@ package com.fmss.hr.controllers.admin;
 
 import com.fmss.hr.dto.SurveyDto;
 import com.fmss.hr.dto.request.SurveyRequest;
+import com.fmss.hr.dto.request.VoteRequest;
 import com.fmss.hr.services.admin.impl.SurveyServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -46,11 +47,24 @@ public class SurveyController {
         return ResponseEntity.ok(surveyService.getSurveyById(id));
     }
 
-    @PutMapping(value = "/{id}",consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping("/{id}")
     public ResponseEntity<SurveyDto> updateSurvey( @PathVariable Long id,@Valid @RequestBody SurveyDto surveyDto){
         return ResponseEntity.ok(surveyService.updateSurvey(surveyDto,id));
     }
 
+    @PostMapping("/Vote")
+    public ResponseEntity<String> voteOption( @RequestBody VoteRequest voteRequest){
+       Boolean check =  surveyService.voteOption(voteRequest);
+        if(check)
+            return ResponseEntity.status(HttpStatus.OK).body(" Voted");
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Already Voted");
+
+    }
+    @GetMapping("/voteCount/{surveyId}")
+    public ResponseEntity<Integer> voteCount(@PathVariable Long surveyId){
+        surveyService.voteCount(surveyId);
+        return null;
+    }
 
 
 }

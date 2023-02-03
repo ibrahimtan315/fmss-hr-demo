@@ -2,6 +2,7 @@ package com.fmss.hr.services.admin;
 
 import com.fmss.hr.dto.SurveyDto;
 import com.fmss.hr.dto.request.SurveyRequest;
+import com.fmss.hr.dto.request.VoteRequest;
 import com.fmss.hr.entities.Survey;
 
 import java.util.List;
@@ -20,6 +21,9 @@ public interface SurveyService {
 
     List<SurveyDto> getAllSurveyWithStatus(Boolean isActive, int pageNum, String title);
 
+    Boolean voteOption(VoteRequest voteRequest);
+
+    int voteCount(Long surveyId);
 
 
 

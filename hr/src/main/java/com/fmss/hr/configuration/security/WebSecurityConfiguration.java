@@ -54,6 +54,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/leave/**").permitAll()
                 .antMatchers("/upcomingHolidays/**").permitAll()
                 .antMatchers("/announcements/**").permitAll()
+
                 .anyRequest().authenticated();
                 
         http.exceptionHandling().accessDeniedPage("/users/login");

@@ -3,13 +3,16 @@ package com.fmss.hr.services.admin.impl;
 import com.fmss.hr.dto.SurveyDto;
 import com.fmss.hr.dto.SurveyOptionsDto;
 import com.fmss.hr.dto.request.SurveyRequest;
+import com.fmss.hr.dto.request.VoteRequest;
 import com.fmss.hr.entities.Advert;
 import com.fmss.hr.entities.Survey;
 import com.fmss.hr.entities.SurveyOptions;
+import com.fmss.hr.entities.User;
 import com.fmss.hr.mapper.SurveyMapper;
 import com.fmss.hr.mapper.SurveyOptionsMapper;
 import com.fmss.hr.repos.admin.SurveyOptionsRepository;
 import com.fmss.hr.repos.admin.SurveyRepository;
+import com.fmss.hr.repos.user.UserRepository;
 import com.fmss.hr.services.admin.SurveyOptionsService;
 import com.fmss.hr.services.admin.SurveyService;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +21,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -30,6 +32,7 @@ public class SurveyServiceImpl implements SurveyService {
     private final SurveyMapper surveyMapper;
     private final SurveyOptionsService surveyOptionsService;
     private final SurveyOptionsMapper surveyOptionsMapper;
+    private final SurveyOptionsRepository surveyOptionsRepository;
 
     @Override
     public SurveyDto createSurvey(SurveyRequest surveyRequest) {
@@ -46,7 +49,8 @@ public class SurveyServiceImpl implements SurveyService {
 
     @Override
     public SurveyDto updateSurvey(SurveyDto surveyDto, Long id) {
-       List<SurveyOptions> surveyOptionsList = surveyDto.getOptions().stream().map(surveyOptionsMapper::toSurveyOptions).collect(Collectors.toList());
+       List<SurveyOptions> surveyOptionsList =
+               surveyDto.getOptions().stream().map(surveyOptionsMapper::toSurveyOptions).collect(Collectors.toList());
         Survey survey = surveyRepository.findById(id).orElse(null);
         if(survey != null){
             survey.setTitle(surveyDto.getTitle());
@@ -99,7 +103,6 @@ public class SurveyServiceImpl implements SurveyService {
                 if (filteredElements.size() == 6) {
                     return filteredElements;
                 }
-
                 elements = PageRequest.of(i + pageNum - 1, 6);
                 List<Survey> allElements = surveyRepository.findAllByStatusAndTitleContainingIgnoreCase(isActive, title, elements);
                 List<SurveyDto> elementDtoList = new ArrayList<>();
@@ -119,4 +122,28 @@ public class SurveyServiceImpl implements SurveyService {
             return surveyRepository.surveyCountWithStatus(status);
         }
     }
+
+    public Boolean voteOption(VoteRequest voteRequest){
+        if(voteRequest!=null){
+            Survey survey = surveyRepository.findById(voteRequest.getSurveyId()).orElse(null);
+            SurveyOptions surveyOptions = surveyOptionsRepository.findById(voteRequest.getSurveyOptionId()).orElse(null);
+                if(surveyOptionsRepository.findUserVote(voteRequest.getUserId(),voteRequest.getSurveyOptionId())!=null){
+                    return false;
+                }else {
+                SurveyOptions surveyOptionsUpdate =
+                        new SurveyOptions(voteRequest.getSurveyOptionId(),surveyOptions.getOption(), voteRequest.getUserId(),survey);
+                surveyOptionsRepository.save(surveyOptionsUpdate);
+            return true;
+            }
+        } else
+            return false;
+    }
+
+    public int voteCount(Long surveyId){
+        List<Long> surveyOptionsIdList = surveyOptionsRepository.findOptionsOfSurvey(surveyId);
+
+
+        return 1;
+    }
+
 }

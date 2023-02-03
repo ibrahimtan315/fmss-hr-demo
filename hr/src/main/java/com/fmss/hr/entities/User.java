@@ -114,8 +114,7 @@ public class User implements UserDetails {
     @Column(name = "photo_path")
     private String photoPath;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private SurveyOptions surveyOptions;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
