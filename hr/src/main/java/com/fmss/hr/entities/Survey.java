@@ -1,13 +1,13 @@
 package com.fmss.hr.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.Collection;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -28,9 +28,11 @@ public class Survey {
     private String description;
 
     @Column(name = "startDate")
-    private LocalDateTime startDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate startDate;
     @Column(name = "endDate")
-    private LocalDateTime endDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate endDate;
     @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<SurveyOptions> options;
     @Column(name = "status")
