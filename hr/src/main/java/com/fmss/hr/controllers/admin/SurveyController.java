@@ -27,12 +27,9 @@ public class SurveyController {
     }
     @GetMapping("/{isActive}/{pageNum}")
     public ResponseEntity<List<SurveyDto>> getAllSurveyWithStatus(@PathVariable int pageNum, @PathVariable Boolean isActive, @RequestParam String title){
-        List<SurveyDto> surveyDtoList = surveyService.getAllSurveyWithStatus(isActive,pageNum,title);
-        if (surveyDtoList != null)
-            return ResponseEntity.status(HttpStatus.OK).body(surveyDtoList);
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        return ResponseEntity.ok(surveyService.getAllSurveyWithStatus(isActive,pageNum,title));
     }
-    @RequestMapping(value = "create/{userId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ResponseEntity<SurveyDto> createSurvey(@Valid @RequestBody SurveyRequest surveyRequest ){
         return ResponseEntity.ok(surveyService.createSurvey(surveyRequest));
     }
@@ -60,11 +57,7 @@ public class SurveyController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Already Voted");
 
     }
-    @GetMapping("/voteCount/{surveyId}")
-    public ResponseEntity<Integer> voteCount(@PathVariable Long surveyId){
-        surveyService.voteCount(surveyId);
-        return null;
-    }
+
 
 
 }

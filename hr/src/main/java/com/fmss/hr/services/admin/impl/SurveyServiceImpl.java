@@ -124,26 +124,8 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     public Boolean voteOption(VoteRequest voteRequest){
-        if(voteRequest!=null){
-            Survey survey = surveyRepository.findById(voteRequest.getSurveyId()).orElse(null);
-            SurveyOptions surveyOptions = surveyOptionsRepository.findById(voteRequest.getSurveyOptionId()).orElse(null);
-                if(surveyOptionsRepository.findUserVote(voteRequest.getUserId(),voteRequest.getSurveyOptionId())!=null){
-                    return false;
-                }else {
-                SurveyOptions surveyOptionsUpdate =
-                        new SurveyOptions(voteRequest.getSurveyOptionId(),surveyOptions.getOption(), voteRequest.getUserId(),survey);
-                surveyOptionsRepository.save(surveyOptionsUpdate);
-            return true;
-            }
-        } else
+
             return false;
-    }
-
-    public int voteCount(Long surveyId){
-        List<Long> surveyOptionsIdList = surveyOptionsRepository.findOptionsOfSurvey(surveyId);
-
-
-        return 1;
     }
 
 }

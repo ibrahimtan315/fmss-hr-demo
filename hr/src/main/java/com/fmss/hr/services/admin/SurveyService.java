@@ -23,7 +23,6 @@ public interface SurveyService {
 
     Boolean voteOption(VoteRequest voteRequest);
 
-    int voteCount(Long surveyId);
 
 
 

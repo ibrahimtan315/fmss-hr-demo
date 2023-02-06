@@ -20,12 +20,11 @@ public class SurveyOptions {
     private Long id;
     @Column(name = "option")
     private String option;
-    @Column(name = "user_id")
-    private Long userId;
+    @Column(name = "counter")
+    private int counter;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "surveyOption_id", nullable = false, referencedColumnName = "id")
     private Survey survey;
-
 
 
 }

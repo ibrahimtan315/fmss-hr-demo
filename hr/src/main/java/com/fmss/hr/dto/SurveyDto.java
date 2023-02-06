@@ -5,20 +5,20 @@ import lombok.*;
 
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
 @Setter
 @Builder
-@Data
 public class SurveyDto {
     private Long id;
     private String title;
     private String description;
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate startDate;
+    private LocalDateTime startDate;
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate endDate;
+    private LocalDateTime endDate;
     private List<SurveyOptionsDto> options;
     private Boolean status;
 

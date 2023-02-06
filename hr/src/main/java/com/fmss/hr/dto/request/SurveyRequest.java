@@ -22,9 +22,9 @@ public class SurveyRequest {
 
     private String description;
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate startDate;
+    private LocalDateTime startDate;
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDate endDate;
+    private LocalDateTime endDate;
 
     private List<SurveyOptionsDto> options;
 
