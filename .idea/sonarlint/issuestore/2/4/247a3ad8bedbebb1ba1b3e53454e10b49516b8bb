@@ -1,0 +1,30 @@
+
+G
+java:S5411W"*Use the primitive boolean expression here.(Šâ´Ï8Ï‘™þã0
+G
+java:S5411]"*Use the primitive boolean expression here.(´ˆ¤ü8Ð‘™þã0
+G
+java:S5411t"*Use the primitive boolean expression here.(õÆ‚¨8Ð‘™þã0
+L
+java:S5411{"*Use the primitive boolean expression here.(åÉÃ¡þÿÿÿÿ8Ñ‘™þã0
+M
+java:S5411œ"*Use the primitive boolean expression here.(Í®ëºÿÿÿÿÿ8Ñ‘™þã0
+]	java:S1257"<This block of commented-out lines of code should be removed.( Õ•¦ýÿÿÿÿ8­’™þã0
+t
+java:S6204P"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(¾—áƒùÿÿÿÿ8²’™þã0
+o
+java:S3776T"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(œ›óª8´’™þã0
+N
+java:S1602w",Remove useless curly braces around statement(€æ±œùÿÿÿÿ8Æ’™þã0
+O
+java:S1135z"2Complete the task associated to this TODO comment.(ã¤àø8È’™þã0
+J
+java:S1602",Remove useless curly braces around statement(­ô…Ú8Î’™þã0
+I
+java:S1168˜"+Return an empty collection instead of null.(¥¹ï8Ð’™þã0
+~
+java:S3923œ"[Remove this conditional structure or edit its code blocks so that they're not all the same.(Í®ëºÿÿÿÿÿ8Ñ’™þã0
+u
+java:S6204§"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(¶¶—ôøÿÿÿÿ8Ö’™þã0
+u
+java:S6204«"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(¶¶—ôøÿÿÿÿ8Ù’™þã0
