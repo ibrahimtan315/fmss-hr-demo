@@ -105,6 +105,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/upcomingHolidays/**")
                 .antMatchers("/announcements/**")
                 .antMatchers("/survey/**")
+                .antMatchers("/survey/")
                 .and()
                 .ignoring()
                 .antMatchers("/h2-console/**/**");

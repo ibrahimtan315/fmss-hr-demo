@@ -8,8 +8,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface SurveyMapper {
 
-    Survey toSurvey(SurveyDto surveyDto);
+    Survey toSurveyFromSurveyRequest(SurveyRequest surveyRequest);
+    SurveyDto toSurveyDtoFromSurvey(Survey survey);
 
-    SurveyDto toSurveyDto(Survey survey);
-    Survey toSurveyFromSurveyCreateRequest(SurveyRequest surveyRequest);
 }

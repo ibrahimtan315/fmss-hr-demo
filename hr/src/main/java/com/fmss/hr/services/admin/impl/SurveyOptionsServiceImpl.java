@@ -21,8 +21,8 @@ public class SurveyOptionsServiceImpl implements SurveyOptionsService {
 
     @Override
     public void saveSurveyOptionsList(List<SurveyOptionsDto> surveyOptionsDtoList) {
-        List<SurveyOptions> surveyOptionsList = surveyOptionsDtoList.stream().map(surveyOptionsMapper::toSurveyOptions)
-                .toList();
-        surveyOptionsList.stream().forEach(surveyOptionsRepository::save);
+//        List<SurveyOptions> surveyOptionsList = surveyOptionsDtoList.stream().map(surveyOptionsMapper::toSurveyOptions)
+//                .toList();
+//        surveyOptionsRepository.saveAll(surveyOptionsList);
     }
 }

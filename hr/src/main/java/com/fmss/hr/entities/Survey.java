@@ -5,36 +5,31 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
-@Entity
-@Table(name = "survey")
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
+@Entity
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@EqualsAndHashCode
+@ToString
 public class Survey {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
-    @Column(name = "title")
     private String title;
-    @Column(name = "description")
     private String description;
-
-    @Column(name = "startDate")
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDateTime startDate;
-    @Column(name = "endDate")
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDateTime endDate;
+//    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate startDate;
+//    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate endDate;
     @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<SurveyOptions> options;
-    @Column(name = "status")
+    private List<SurveyOptions> surveyOptionsId;
     private Boolean status;
 
 }

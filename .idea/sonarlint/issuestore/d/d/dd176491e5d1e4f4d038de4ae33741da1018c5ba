@@ -1,0 +1,21 @@
+
+f
+java:S3655>"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Ù¦Áò
+k
+java:S3655R"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Ù÷¶…ûÿÿÿÿ
+k
+java:S3655["PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Ù÷¶…ûÿÿÿÿ
+h
+java:S62045"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
+c
+java:S1128"MRemove this unused import 'com.fmss.hr.dto.projection.ExpenseUserProjection'.(ÂèˆÌ
+\
+java:S1128"ARemove this unused import 'org.springframework.data.domain.Page'.(˜âŽŽüÿÿÿÿ
+^
+java:S1128"HRemove this unused import 'org.springframework.data.domain.PageRequest'.(ºêâÚ
+_
+java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ
+p
+java:S1128"URemove this unused import 'org.springframework.transaction.annotation.Transactional'.(ðùçøùÿÿÿÿ
+O
+java:S1128"4Remove this unused import 'java.awt.print.Pageable'.(ž¾Ðýøÿÿÿÿ

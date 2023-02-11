@@ -1,0 +1,6 @@
+
+k	java:S117H"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½’ÝÍýÿÿÿÿ
+i	java:S116B"URename this field "manager_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êñ¢U
+V	java:S107E"BConstructor has 13 parameters, which is greater than 7 authorized.(åÕþ
+Q
+java:S1128"6Remove this unused import 'lombok.AllArgsConstructor'.(´œ¾öùÿÿÿÿ

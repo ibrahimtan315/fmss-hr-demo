@@ -1,0 +1,45 @@
+
+f	java:S117s"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îÂ¢„
+g	java:S117’"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈØ¦˜
+‹
+java:S1488J"pImmediately return this expression instead of assigning it to the temporary variable "candidatesWithoutMeeting".(õöïüÿÿÿÿ
+‚
+java:S1488o"gImmediately return this expression instead of assigning it to the temporary variable "closestMeetings".(í´õ¸üÿÿÿÿ
+^
+java:S2583W"CChange this condition so that it does not always evaluate to "true"(¨¼¿£ÿÿÿÿÿ
+^
+java:S2583f"CChange this condition so that it does not always evaluate to "true"(¨¼¿£ÿÿÿÿÿ
+^
+java:S2583?"CChange this condition so that it does not always evaluate to "true"(¬œÂ«ıÿÿÿÿ
+m
+java:S6204<"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(›ñÎºøÿÿÿÿ
+\
+java:S1612<"AReplace this lambda with method reference 'this::ExpiredEndDate'.(›ñÎºøÿÿÿÿ
+B
+java:S1602=",Remove useless curly braces around statement(Ä“­–
+h
+java:S6204U"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ÃØôü
+S
+java:S1612U"=Replace this lambda with method reference 'this::isAccepted'.(ÃØôü
+G
+java:S1602V",Remove useless curly braces around statement(™ş¶ºúÿÿÿÿ
+h
+java:S6204c"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(óªØ
+S
+java:S1612c"=Replace this lambda with method reference 'this::isRejected'.(óªØ
+G
+java:S1602d",Remove useless curly braces around statement(™ş¶ºúÿÿÿÿ
+]
+java:S1126œ"AReplace this if-then-else statement by a single return statement.(½×Şşÿÿÿÿ
+]
+java:S1126¤"AReplace this if-then-else statement by a single return statement.(”Ğ•Äÿÿÿÿÿ
+d	java:S100µ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥æ“ˆ
+W	java:S125¶"<This block of commented-out lines of code should be removed.(ÔôÌÛıÿÿÿÿ
+X
+java:S1126º"AReplace this if-then-else statement by a single return statement.(Çéæ
+O
+java:S1128"9Remove this unused import 'com.fmss.hr.dto.CandidateDto'.(ªß›¬
+M
+java:S1128"7Remove this unused import 'com.fmss.hr.entities.Event'.(¤±š¦
+U
+java:S1128"?Remove this unused import 'com.fmss.hr.mapper.CandidateMapper'.(Ü”Ø•

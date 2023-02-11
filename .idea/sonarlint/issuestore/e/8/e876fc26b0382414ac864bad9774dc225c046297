@@ -1,0 +1,20 @@
+
+l
+java:S4488"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Æ‹ÞÝùÿÿÿÿ8ÕÝØ¬â0
+]	java:S125 "<This block of commented-out lines of code should be removed.(‡ÈÊ£ýÿÿÿÿ8ÖÝØ¬â0
+T
+java:S1135*"2Complete the task associated to this TODO comment.(ÖªÏßÿÿÿÿÿ8×ÝØ¬â0
+U
+java:S1128"8Remove this unused import 'com.fmss.hr.dto.OvertimeDto'.(ŸÙ¸ÿ8ØÝØ¬â0
+i
+java:S1128"GRemove this unused import 'com.fmss.hr.dto.projection.LeaveProjection'.(€¥¥¤ùÿÿÿÿ8ÙÝØ¬â0
+m
+java:S1128"KRemove this unused import 'com.fmss.hr.dto.projection.LeaveUserProjection'.(î¡ Æùÿÿÿÿ8ÙÝØ¬â0
+S
+java:S1128"7Remove this unused import 'com.fmss.hr.entities.Leave'.(•ÙÎ8ÙÝØ¬â0
+a
+java:S1128	"DRemove this unused import 'com.fmss.hr.repos.admin.LeaveRepository'.(èé¹Õ8ÙÝØ¬â0
+c
+java:S1128"ARemove this unused import 'org.springframework.data.domain.Page'.(˜âŽŽüÿÿÿÿ8ÙÝØ¬â0
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ÙÝØ¬â0

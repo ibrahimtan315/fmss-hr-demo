@@ -1,0 +1,22 @@
+
+<
+java:S1452S"&Remove usage of generic wildcard type.(Ø„ª¦
+<
+java:S1452X"&Remove usage of generic wildcard type.(õÄ¶È
+<
+java:S1452b"&Remove usage of generic wildcard type.(¿Ž¼ð
+O
+java:S1128"9Remove this unused import 'com.fmss.hr.dto.CandidateDto'.(ªß›¬
+K
+java:S1128"5Remove this unused import 'com.fmss.hr.dto.EventDto'.(Ì´öŒ
+k
+java:S1128	"PRemove this unused import 'com.fmss.hr.services.admin.impl.OldEventServiceImpl'.(Á­’üÿÿÿÿ
+\
+java:S1128
+"ARemove this unused import 'org.springframework.data.domain.Page'.(˜âŽŽüÿÿÿÿ
+^
+java:S1128"HRemove this unused import 'org.springframework.data.domain.PageRequest'.(ºêâÚ
+`
+java:S1128"ERemove this unused import 'org.springframework.data.domain.Pageable'.(‡ë‚Öýÿÿÿÿ
+f
+java:S1128"KRemove this unused import 'org.springframework.security.core.parameters.P'.(Æ­Åýÿÿÿÿ

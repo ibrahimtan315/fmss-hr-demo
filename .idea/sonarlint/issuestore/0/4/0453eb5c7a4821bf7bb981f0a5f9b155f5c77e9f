@@ -1,0 +1,6 @@
+
+o	java:S116"URename this field "meeting_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â÷Âıÿÿÿÿ
+n	java:S116"TRename this field "start_url" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µù×Ÿøÿÿÿÿ
+g	java:S116"RRename this field "host_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ò¬§‰
+o	java:S116"URename this field "host_email" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÖŞ§Œûÿÿÿÿ
+o	java:S116 "URename this field "start_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à§ßúıÿÿÿÿ

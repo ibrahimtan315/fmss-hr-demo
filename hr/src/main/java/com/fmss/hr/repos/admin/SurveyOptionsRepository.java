@@ -15,5 +15,8 @@ public interface SurveyOptionsRepository extends JpaRepository<SurveyOptions,Lon
 
     @Query(value = "select user_id from survey_options where survey_id=:surveyId" , nativeQuery = true)
     List<Long> findOptionsOfSurvey (Long surveyId);
-
+    @Query(value = "select * from survey_options where survey_id =:surveyId", nativeQuery = true)
+    List<SurveyOptions> findAllBySurveyId (Long surveyId);
+    @Query(value= "select * from survey_options", nativeQuery = true)
+    List<SurveyOptions> findAll();
 }

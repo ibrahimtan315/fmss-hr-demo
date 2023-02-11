@@ -1,0 +1,9 @@
+
+w
+java:S1488/"aImmediately return this expression instead of assigning it to the temporary variable "eventList".(›ÎÒÇ
+h
+java:S6204+"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
+V	java:S1256"<This block of commented-out lines of code should be removed.(­žº‘þÿÿÿÿ
+Q	java:S125?"<This block of commented-out lines of code should be removed.(¸÷Îµ
+h
+java:S6204Z"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
