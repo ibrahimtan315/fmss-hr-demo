@@ -6,10 +6,12 @@ import com.fmss.hr.dto.request.SurveyRequest;
 import com.fmss.hr.dto.request.VoteRequest;
 import com.fmss.hr.entities.Survey;
 import com.fmss.hr.entities.SurveyOptions;
+import com.fmss.hr.entities.Vote;
 import com.fmss.hr.mapper.SurveyMapper;
 import com.fmss.hr.mapper.SurveyOptionsMapper;
 import com.fmss.hr.repos.admin.SurveyOptionsRepository;
 import com.fmss.hr.repos.admin.SurveyRepository;
+import com.fmss.hr.repos.admin.VoteRepository;
 import com.fmss.hr.services.admin.SurveyOptionsService;
 import com.fmss.hr.services.admin.SurveyService;
 import lombok.RequiredArgsConstructor;
@@ -29,6 +31,7 @@ public class SurveyServiceImpl implements SurveyService {
     private final SurveyOptionsService surveyOptionsService;
     private final SurveyOptionsMapper surveyOptionsMapper;
     private final SurveyOptionsRepository surveyOptionsRepository;
+    private final VoteRepository voteRepository;
 
     @Override
     public SurveyDto createSurvey(SurveyRequest surveyRequest) {
@@ -83,7 +86,7 @@ public class SurveyServiceImpl implements SurveyService {
     @Override
     public List<SurveyDto> getAllSurveyWithStatus(Boolean isActive, int pageNum, String title) {
 
-        Pageable elements = PageRequest.of(pageNum - 1, 9);
+        Pageable elements = PageRequest.of(pageNum - 1, 10);
         if (isActive && title.length() == 0) {
             List<Survey> allElements = surveyRepository.findAllByStatus(isActive, elements);
             List<SurveyDto> elementDtoList = new ArrayList<>();
@@ -92,7 +95,7 @@ public class SurveyServiceImpl implements SurveyService {
 
         } else if (isActive && title.length() > 0) {
             List<SurveyDto> filteredElements = new ArrayList<>();
-            int totalSurveys = totalSurveyCountWithStatus(isActive) / 9;
+            int totalSurveys = totalSurveyCountWithStatus(isActive) / 10;
             int limit;
 
             if (totalSurveys >= 1) {
@@ -102,10 +105,10 @@ public class SurveyServiceImpl implements SurveyService {
             }
             for (int i = 0; i < limit; i++) {
 
-                if (filteredElements.size() == 9) {
+                if (filteredElements.size() == 10) {
                     return filteredElements;
                 }
-                elements = PageRequest.of(i + pageNum - 1, 9);
+                elements = PageRequest.of(i + pageNum - 1, 10);
                 List<Survey> allElements = surveyRepository.findAllByStatusAndTitleContainingIgnoreCase(isActive, title, elements);
                 List<SurveyDto> elementDtoList = new ArrayList<>();
                 allElements.forEach(p -> elementDtoList.add(surveyMapper.toSurveyDtoFromSurvey(p)));
@@ -123,7 +126,7 @@ public class SurveyServiceImpl implements SurveyService {
         } else if (!isActive &&title.length() > 0) {
             List<SurveyDto> filteredElements = new ArrayList<>();
 
-            int totalSurvey = totalSurveyCount()/9;
+            int totalSurvey = totalSurveyCount()/10;
             int limit;
 
             if (totalSurvey >= 1) {
@@ -134,10 +137,10 @@ public class SurveyServiceImpl implements SurveyService {
 
             for (int i = 0; i < limit; i++) {
 
-                if (filteredElements.size() == 9) {
+                if (filteredElements.size() == 10) {
                     return filteredElements;
                 }
-                elements = PageRequest.of(i+pageNum-1, 9);
+                elements = PageRequest.of(i+pageNum-1, 10);
                 List<Survey> allElements = surveyRepository.findAllByStatusAndTitleContainingIgnoreCase(isActive,title, elements);
                 List<SurveyDto> elementDtoList = new ArrayList<>();
                 allElements.forEach(survey -> {
@@ -172,6 +175,14 @@ public class SurveyServiceImpl implements SurveyService {
     }
     public Boolean voteOption(VoteRequest voteRequest){
 
+
+            return false;
+    }
+    public Boolean voteCheck(Long userId){
+       Optional<Vote> check = voteRepository.voteCheck(userId);
+       if(!check.isEmpty()){
+           return true;
+        }else
             return false;
     }
 

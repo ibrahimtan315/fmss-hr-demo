@@ -10,7 +10,6 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Builder
 public class SurveyOptionsDto {
 
 
@@ -18,7 +17,6 @@ public class SurveyOptionsDto {
     private Long id;
     private String options;
     private int counter;
-    private Long surveyId;
 
 
 }

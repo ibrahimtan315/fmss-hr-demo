@@ -63,6 +63,10 @@ public class SurveyController {
             return ResponseEntity.status(HttpStatus.OK).body(" Voted");
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Already Voted");
     }
+    @GetMapping("/vote/{userId}")
+    public ResponseEntity<Boolean> checkVoted(@PathVariable Long userId){
+        return ResponseEntity.ok(surveyService.voteCheck(userId));
+    }
     @GetMapping("/surveyOptions/{surveyId}")
     public ResponseEntity<List<SurveyOptionsDto>> getSurveyOptions(@PathVariable Long surveyId){
         return ResponseEntity.ok(surveyService.getSurveyOptions(surveyId));
