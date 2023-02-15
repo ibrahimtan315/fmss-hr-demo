@@ -4,24 +4,20 @@ import lombok.*;
 
 import javax.persistence.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "vote")
-@Builder
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@EqualsAndHashCode
+@ToString
 public class Vote {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
-    @Column(name = "survey_id")
     private Long surveyId;
-    @Column(name = "surveyOption_id")
     private Long surveyOptionsId;
-    @Column(name = "user_id")
     private Long userId;
 
 

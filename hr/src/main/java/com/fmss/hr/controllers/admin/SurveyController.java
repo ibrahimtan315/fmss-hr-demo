@@ -57,15 +57,15 @@ public class SurveyController {
     }
 
     @PostMapping("/vote")
-    public ResponseEntity<String> voteOption( @RequestBody VoteRequest voteRequest){
+    public ResponseEntity<String> voteOption( @Valid @RequestBody VoteRequest voteRequest){
        Boolean check =  surveyService.voteOption(voteRequest);
         if(check)
-            return ResponseEntity.status(HttpStatus.OK).body(" Voted");
+            return ResponseEntity.status(HttpStatus.OK).body("Voted");
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Already Voted");
     }
-    @GetMapping("/vote/{userId}")
-    public ResponseEntity<Boolean> checkVoted(@PathVariable Long userId){
-        return ResponseEntity.ok(surveyService.voteCheck(userId));
+    @GetMapping("/vote/check/{userId}/{surveyId}")
+    public ResponseEntity<Boolean> checkVoted(@PathVariable Long userId, @PathVariable Long surveyId){
+        return ResponseEntity.ok(surveyService.voteCheck(userId,surveyId));
     }
     @GetMapping("/surveyOptions/{surveyId}")
     public ResponseEntity<List<SurveyOptionsDto>> getSurveyOptions(@PathVariable Long surveyId){

@@ -9,6 +9,7 @@ import com.fmss.hr.entities.SurveyOptions;
 import com.fmss.hr.entities.Vote;
 import com.fmss.hr.mapper.SurveyMapper;
 import com.fmss.hr.mapper.SurveyOptionsMapper;
+import com.fmss.hr.mapper.VoteMapper;
 import com.fmss.hr.repos.admin.SurveyOptionsRepository;
 import com.fmss.hr.repos.admin.SurveyRepository;
 import com.fmss.hr.repos.admin.VoteRepository;
@@ -17,6 +18,7 @@ import com.fmss.hr.services.admin.SurveyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -32,6 +34,7 @@ public class SurveyServiceImpl implements SurveyService {
     private final SurveyOptionsMapper surveyOptionsMapper;
     private final SurveyOptionsRepository surveyOptionsRepository;
     private final VoteRepository voteRepository;
+    private final VoteMapper voteMapper;
 
     @Override
     public SurveyDto createSurvey(SurveyRequest surveyRequest) {
@@ -79,7 +82,7 @@ public class SurveyServiceImpl implements SurveyService {
     @Override
     public List<SurveyDto> getAllSurvey() {
 
-        List<Survey> surveyList = surveyRepository.findAll();
+        List<Survey> surveyList = surveyRepository.findAll(Sort.by(Sort.Order.asc("id")));
         return surveyList.stream().map(surveyMapper::toSurveyDtoFromSurvey).collect(Collectors.toList());
     }
 
@@ -88,7 +91,7 @@ public class SurveyServiceImpl implements SurveyService {
 
         Pageable elements = PageRequest.of(pageNum - 1, 10);
         if (isActive && title.length() == 0) {
-            List<Survey> allElements = surveyRepository.findAllByStatus(isActive, elements);
+            List<Survey> allElements = surveyRepository.findAllByStatusOrderById(isActive, elements);
             List<SurveyDto> elementDtoList = new ArrayList<>();
             allElements.forEach(p -> elementDtoList.add(surveyMapper.toSurveyDtoFromSurvey(p)));
             return elementDtoList;
@@ -109,7 +112,7 @@ public class SurveyServiceImpl implements SurveyService {
                     return filteredElements;
                 }
                 elements = PageRequest.of(i + pageNum - 1, 10);
-                List<Survey> allElements = surveyRepository.findAllByStatusAndTitleContainingIgnoreCase(isActive, title, elements);
+                List<Survey> allElements = surveyRepository.findAllByStatusAndTitleContainingIgnoreCaseOrderById(isActive, title, elements);
                 List<SurveyDto> elementDtoList = new ArrayList<>();
                 allElements.forEach(p -> elementDtoList.add(surveyMapper.toSurveyDtoFromSurvey(p)));
                 filteredElements.addAll(elementDtoList);
@@ -117,7 +120,7 @@ public class SurveyServiceImpl implements SurveyService {
             return filteredElements;
         }
         if (!isActive &&title.length() == 0) {
-            List<Survey> elementList = surveyRepository.findAllByStatus(isActive,elements);
+            List<Survey> elementList = surveyRepository.findAllByStatusOrderById(isActive,elements);
             List<SurveyDto> elementDtoList = new ArrayList<>();
             elementList.forEach(survey -> {
                 elementDtoList.add(surveyMapper.toSurveyDtoFromSurvey(survey));
@@ -141,7 +144,7 @@ public class SurveyServiceImpl implements SurveyService {
                     return filteredElements;
                 }
                 elements = PageRequest.of(i+pageNum-1, 10);
-                List<Survey> allElements = surveyRepository.findAllByStatusAndTitleContainingIgnoreCase(isActive,title, elements);
+                List<Survey> allElements = surveyRepository.findAllByStatusAndTitleContainingIgnoreCaseOrderById(isActive,title, elements);
                 List<SurveyDto> elementDtoList = new ArrayList<>();
                 allElements.forEach(survey -> {
                     elementDtoList.add(surveyMapper.toSurveyDtoFromSurvey(survey));
@@ -170,16 +173,19 @@ public class SurveyServiceImpl implements SurveyService {
         return surveyOptionsList.stream().map(surveyOptionsMapper::toSurveyOptionsDto).collect(Collectors.toList());
     }
     public List<SurveyOptionsDto> getAllSurveyOptions (){
-        List<SurveyOptions> surveyOptionsList = surveyOptionsRepository.findAll();
+        List<SurveyOptions> surveyOptionsList = surveyOptionsRepository.findAll(Sort.by(Sort.Order.asc("id")));
         return surveyOptionsList.stream().map(surveyOptionsMapper::toSurveyOptionsDto).collect(Collectors.toList());
     }
     public Boolean voteOption(VoteRequest voteRequest){
-
-
-            return false;
+        Vote vote = voteMapper.toVoteFromVoteRequest(voteRequest);
+        Optional<Vote> voteOptional = voteRepository.findById(voteRepository.save(vote).getId());
+        SurveyOptions surveyOptions = surveyOptionsRepository.findBySurveyOptionsId(voteRequest.getSurveyOptionsId());
+        surveyOptions.setCounter(surveyOptions.getCounter()+1);
+        surveyOptionsRepository.save(surveyOptions);
+        return voteOptional.isPresent();
     }
-    public Boolean voteCheck(Long userId){
-       Optional<Vote> check = voteRepository.voteCheck(userId);
+    public Boolean voteCheck(Long userId, Long surveyId){
+       Optional<Vote> check = voteRepository.voteCheck(userId, surveyId);
        if(!check.isEmpty()){
            return true;
         }else

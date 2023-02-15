@@ -8,6 +8,6 @@ import java.util.Optional;
 
 public interface VoteRepository extends JpaRepository<Vote, Long> {
 
-    @Query(value = "select * from vote where user_id= :userId", nativeQuery = true)
-    Optional<Vote> voteCheck(Long userId);
+    @Query(value = "select * from vote where user_id= :userId AND survey_id= :surveyId", nativeQuery = true)
+    Optional<Vote> voteCheck(Long userId, Long surveyId);
 }
